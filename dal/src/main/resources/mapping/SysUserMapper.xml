@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nashwork.dal.dao.SysUserDao">
+  <resultMap id="BaseResultMap" type="com.nashwork.dal.entity.SysUserEntity">
+    <id column="oa_id" jdbcType="VARCHAR" property="oaId" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="department_allpath" jdbcType="VARCHAR" property="departmentAllpath" />
+    <result column="user_no" jdbcType="VARCHAR" property="userNo" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="login_pwd" jdbcType="VARCHAR" property="loginPwd" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="job" jdbcType="VARCHAR" property="job" />
+    <result column="cellphone" jdbcType="VARCHAR" property="cellphone" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="nash_name" jdbcType="VARCHAR" property="nashName" />
+    <result column="department_ltree" jdbcType="OTHER" property="departmentLtree" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modify_at" jdbcType="TIMESTAMP" property="modifyAt" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    oa_id, company_name, department_allpath, user_no, login_name, login_pwd, user_name, 
+    job, cellphone, tel, email, nash_name, department_ltree, creator, create_at, modifier, 
+    modify_at, status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where oa_id = #{oaId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sys_user
+    where oa_id = #{oaId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.nashwork.dal.entity.SysUserEntity">
+    insert into sys_user (oa_id, company_name, department_allpath, 
+      user_no, login_name, login_pwd, 
+      user_name, job, cellphone, 
+      tel, email, nash_name, 
+      department_ltree, creator, create_at, 
+      modifier, modify_at, status
+      )
+    values (#{oaId,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{departmentAllpath,jdbcType=VARCHAR}, 
+      #{userNo,jdbcType=VARCHAR}, #{loginName,jdbcType=VARCHAR}, #{loginPwd,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, #{cellphone,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{nashName,jdbcType=VARCHAR}, 
+      #{departmentLtree,jdbcType=OTHER}, #{creator,jdbcType=VARCHAR}, #{createAt,jdbcType=TIMESTAMP}, 
+      #{modifier,jdbcType=VARCHAR}, #{modifyAt,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.nashwork.dal.entity.SysUserEntity">
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oaId != null">
+        oa_id,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="departmentAllpath != null">
+        department_allpath,
+      </if>
+      <if test="userNo != null">
+        user_no,
+      </if>
+      <if test="loginName != null">
+        login_name,
+      </if>
+      <if test="loginPwd != null">
+        login_pwd,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="job != null">
+        job,
+      </if>
+      <if test="cellphone != null">
+        cellphone,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="nashName != null">
+        nash_name,
+      </if>
+      <if test="departmentLtree != null">
+        department_ltree,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createAt != null">
+        create_at,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="modifyAt != null">
+        modify_at,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oaId != null">
+        #{oaId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentAllpath != null">
+        #{departmentAllpath,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null">
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null">
+        #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="cellphone != null">
+        #{cellphone,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="nashName != null">
+        #{nashName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentLtree != null">
+        #{departmentLtree,jdbcType=OTHER},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null">
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyAt != null">
+        #{modifyAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nashwork.dal.entity.SysUserEntity">
+    update sys_user
+    <set>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentAllpath != null">
+        department_allpath = #{departmentAllpath,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null">
+        user_no = #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loginName != null">
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null">
+        job = #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="cellphone != null">
+        cellphone = #{cellphone,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="nashName != null">
+        nash_name = #{nashName,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentLtree != null">
+        department_ltree = #{departmentLtree,jdbcType=OTHER},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null">
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyAt != null">
+        modify_at = #{modifyAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where oa_id = #{oaId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nashwork.dal.entity.SysUserEntity">
+    update sys_user
+    set company_name = #{companyName,jdbcType=VARCHAR},
+      department_allpath = #{departmentAllpath,jdbcType=VARCHAR},
+      user_no = #{userNo,jdbcType=VARCHAR},
+      login_name = #{loginName,jdbcType=VARCHAR},
+      login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      job = #{job,jdbcType=VARCHAR},
+      cellphone = #{cellphone,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      nash_name = #{nashName,jdbcType=VARCHAR},
+      department_ltree = #{departmentLtree,jdbcType=OTHER},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modify_at = #{modifyAt,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER}
+    where oa_id = #{oaId,jdbcType=VARCHAR}
+  </update>
+</mapper>
