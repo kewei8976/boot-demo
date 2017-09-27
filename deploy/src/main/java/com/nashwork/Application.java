@@ -14,6 +14,8 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.apache.log4j.Logger;
+
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 @EnableAutoConfiguration
@@ -23,20 +25,15 @@ import javax.sql.DataSource;
 public class Application {
 	private static Logger logger = Logger.getLogger(Application.class);
 
-	@Bean
-	@ConfigurationProperties(prefix = "spring.datasource")
-	public DataSource dataSource() {
-		return new org.apache.tomcat.jdbc.pool.DataSource();
-	}
+	@Resource
+	DataSource dataSource ;
 
 	@Bean
 	public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
 
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-		sqlSessionFactoryBean.setDataSource(dataSource());
-
+		sqlSessionFactoryBean.setDataSource(dataSource);
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-
 		sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mapping/*.xml"));
 
 		return sqlSessionFactoryBean.getObject();
@@ -44,7 +41,7 @@ public class Application {
 
 	@Bean
 	public PlatformTransactionManager transactionManager() {
-		return new DataSourceTransactionManager(dataSource());
+		return new DataSourceTransactionManager(dataSource);
 	}
 
 
