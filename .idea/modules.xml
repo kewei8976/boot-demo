@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/api/api.iml" filepath="$PROJECT_DIR$/api/api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api-impl/api-impl.iml" filepath="$PROJECT_DIR$/api-impl/api-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/boot-demo.iml" filepath="$PROJECT_DIR$/boot-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-utils/common-utils.iml" filepath="$PROJECT_DIR$/common-utils/common-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core-model/core-model.iml" filepath="$PROJECT_DIR$/core-model/core-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core-service/core-service.iml" filepath="$PROJECT_DIR$/core-service/core-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dal/dal.iml" filepath="$PROJECT_DIR$/dal/dal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/deploy/deploy.iml" filepath="$PROJECT_DIR$/deploy/deploy.iml" />
+    </modules>
+  </component>
+</project>

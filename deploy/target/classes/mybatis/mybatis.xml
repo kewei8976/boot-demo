@@ -22,5 +22,6 @@
             <property name="reasonable" value="false"/>
             <property name="supportMethodsArguments" value="false"/>
         </plugin>
-    </plugins>  
+    </plugins>
+
 </configuration>
